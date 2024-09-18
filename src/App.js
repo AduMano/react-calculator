@@ -8,6 +8,7 @@ import { BasicMode } from "./page/BasicMode";
 
 // Custom Hooks
 import useBasicCalculator from "./CustomHooks/useBasicCalculator";
+import useNavMenu from "./CustomHooks/useNavMenu";
 
 // Styles
 import "./styles/calculator.css";
@@ -16,6 +17,9 @@ import "./styles/BasicMode/basicMode.css";
 
 function App() {
   // States
+  const [mode, setMode] = useState("basic");
+
+  // Use Custom Hook
   const {
     handleNum1,
     num1,
@@ -27,27 +31,36 @@ function App() {
     result,
   } = useBasicCalculator();
 
+  const navHandle = useNavMenu();
+
+  // Logic
+  const handleMode = (value) => {
+    setMode(value);
+  };
+
   return (
     <div className="calcWrapper">
-      <NavMenu />
-      <CalculatorHeader />
+      <NavMenu handleNavMenu={navHandle} modeSetup={handleMode} />
+      <CalculatorHeader title={mode.toUpperCase()} handleNavMenu={navHandle} />
 
       <div className="calcBody">
         {/* This depends on which mode is selected */}
-        <BasicMode
-          handleEvents={{
-            handleNum1,
-            handleNum2,
-            handleOperator,
-            handleResult,
-          }}
-          states={{
-            num1,
-            num2,
-            operator,
-            result,
-          }}
-        />
+        {mode == "basic" && (
+          <BasicMode
+            handleEvents={{
+              handleNum1,
+              handleNum2,
+              handleOperator,
+              handleResult,
+            }}
+            states={{
+              num1,
+              num2,
+              operator,
+              result,
+            }}
+          />
+        )}
         {/* <div className="calcStandardMode"></div> */}
       </div>
     </div>
