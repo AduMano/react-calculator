@@ -1,0 +1,64 @@
+.calcWrapper {
+  position: relative;
+  width: 35%;
+
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 0 10px 20px 0px rgba(0, 0, 0, 0.2);
+}
+
+.calcWrapper .calcNavMenu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+
+  display: none;
+  background-color: #ccc;
+}
+
+.calcWrapper .calcHeader {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  padding: 20px;
+
+  background-color: hsl(12, 96%, 67%);
+  border-radius: 10px 10px 0 0;
+  color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.calcWrapper .calcHeader button {
+  position: absolute;
+  left: 0;
+  padding: 4px 10px;
+  margin: 0 15px;
+
+  font-size: 2rem;
+  text-align: center;
+
+  border: none;
+  border-radius: 5px;
+  background-color: transparent;
+  color: white;
+
+  z-index: 2;
+}
+.calcWrapper .calcHeader button:hover {
+  cursor: pointer;
+  filter: brightness(0.8);
+}
+.calcWrapper .calcHeader h2 {
+  position: relative;
+  width: 100%;
+  text-align: center;
+}
+
+.calcWrapper .calcBody {
+  position: relative;
+  padding: 20px;
+}
