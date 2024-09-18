@@ -1,3 +1,10 @@
+// Components
+import { NavMenu } from "./components/NavMenu";
+import { CalculatorHeader } from "./components/CalculatorHeader";
+import { NumberInput } from "./components/BasicComponents/NumberInput";
+import { OperatorInput } from "./components/BasicComponents/OperatorInput";
+
+// Styles
 import "./styles/calculator.css";
 import "./styles/NavMenu/navMenu.css";
 import "./styles/BasicMode/basicMode.css";
@@ -5,56 +12,19 @@ import "./styles/BasicMode/basicMode.css";
 function App() {
   return (
     <div className="calcWrapper">
-      <div className="calcNavMenu">
-        {/* 2 of these three list is interactable, by pressing the button to change the modes. */}
-        {/* Those button has their own state if they are selected or not */}
-        <ul>
-          <li>
-            <button>X</button>
-            <h3>CALCU</h3>
-          </li>
-          <li>
-            <button className="calcModeButton">BASIC</button>
-          </li>
-          <li>
-            <button className="calcModeButton">STANDARD</button>
-          </li>
-        </ul>
-      </div>
-
-      <div className="calcHeader">
-        {/* The Heading's position is absolute to ignore the flow rule */}
-        <button>☰</button>
-        {/* Then the Menu Button will be relative to the parent's position */}
-        <h2>BASIC</h2>
-      </div>
+      <NavMenu />
+      <CalculatorHeader />
 
       <div className="calcBody">
         {/* This depends on which mode is selected */}
         <div className="calcBasicMode">
           <form>
-            <div className="formGroup">
-              <label>#1</label>
-              <input type="number" />
-            </div>
-
-            <div className="formGroup">
-              <label>#2</label>
-              <input type="number" />
-            </div>
+            <NumberInput label={"#1"} type={"number"} isReadOnly={false} />
+            <NumberInput label={"#2"} type={"number"} isReadOnly={false} />
 
             <div className="formResult">
-              <select>
-                <option selected>+</option>
-                <option>-</option>
-                <option>*</option>
-                <option>/</option>
-              </select>
-
-              <div className="formGroup">
-                <label>RESULT</label>
-                <input type="text" readOnly />
-              </div>
+              <OperatorInput />
+              <NumberInput label={"RESULT"} type={"number"} isReadOnly={true} />
             </div>
 
             <input className="submitBtn" type="submit" value="CALCULATE" />
