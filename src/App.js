@@ -28,8 +28,36 @@ function App() {
 
       <div className="calcBody">
         {/* This depends on which mode is selected */}
-        <div className="calcBasicMode"></div>
-        <div className="calcStandardMode"></div>
+        <div className="calcBasicMode">
+          <form>
+            <div className="formGroup">
+              <label>#1</label>
+              <input type="number" />
+            </div>
+
+            <div className="formGroup">
+              <label>#2</label>
+              <input type="number" />
+            </div>
+
+            <div className="formResult">
+              <select>
+                <option selected>+</option>
+                <option>-</option>
+                <option>*</option>
+                <option>/</option>
+              </select>
+
+              <div className="formGroup">
+                <label>RESULT</label>
+                <input type="text" readOnly />
+              </div>
+            </div>
+
+            <input className="submitBtn" type="submit" value="CALCULATE" />
+          </form>
+        </div>
+        {/* <div className="calcStandardMode"></div> */}
       </div>
     </div>
   );
