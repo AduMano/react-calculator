@@ -1,0 +1,102 @@
+/* BASIC MODE STYLE */
+.calcBasicMode {
+  position: relative;
+  width: 100%;
+  padding: 20px 10px;
+
+  text-align: center;
+}
+.calcBasicMode .formGroup {
+  position: relative;
+  width: 100%;
+  padding: 4px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.calcBasicMode .formGroup {
+  position: relative;
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 4px;
+}
+.calcBasicMode .formGroup label:not(.formResult label) {
+  position: relative;
+  padding: 15px 16px;
+  background-color: #ddd;
+  border-bottom: 1px solid black;
+  font-size: 1.4em;
+  border-radius: 10px 0 0 10px;
+}
+.calcBasicMode .formGroup input:not(.formResult input) {
+  position: relative;
+  width: 100%;
+  padding: 15px 16px;
+  border: none;
+  font-size: 1.4em;
+  border-bottom: 1px solid black;
+  border-radius: 0 10px 10px 0;
+}
+
+.calcBasicMode .formResult {
+  position: relative;
+  width: 100%;
+  margin: 0 4px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.calcBasicMode .formResult select {
+  position: relative;
+  padding: 5px 10px;
+  border: none;
+  background-color: #ddd;
+  border-bottom: 1px solid black;
+  font-size: 1.2em;
+  border-radius: 4px;
+}
+.calcBasicMode .formResult .formGroup {
+  margin: 0;
+  display: flex;
+  justify-content: flex-end;
+}
+.calcBasicMode .formResult .formGroup label {
+  position: relative;
+  padding: 5px 10px;
+  background-color: #ddd;
+  border-bottom: 1px solid black;
+  font-size: 1.2em;
+  border-radius: 10px 0 0 10px;
+}
+.calcBasicMode .formResult .formGroup input {
+  position: relative;
+  width: 50%;
+  padding: 5px 10px;
+  border: none;
+  font-size: 1.2em;
+  border-bottom: 1px solid black;
+  border-radius: 0 10px 10px 0;
+}
+
+.calcBasicMode .submitBtn {
+  position: relative;
+  width: 50%;
+  margin-top: 40px;
+  padding: 15px;
+
+  font-weight: bolder;
+  font-size: 1.2rem;
+
+  border: none;
+  background-color: hsl(12, 96%, 67%);
+  border-radius: 10px;
+  color: white;
+}
+
+.calcBasicMode .submitBtn:hover,
+.calcBasicMode select:hover {
+  cursor: pointer;
+  filter: brightness(1.2);
+}

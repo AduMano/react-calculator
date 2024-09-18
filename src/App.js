@@ -1,4 +1,6 @@
 import "./styles/calculator.css";
+import "./styles/NavMenu/navMenu.css";
+import "./styles/BasicMode/basicMode.css";
 
 function App() {
   return (
@@ -8,13 +10,14 @@ function App() {
         {/* Those button has their own state if they are selected or not */}
         <ul>
           <li>
+            <button>X</button>
             <h3>CALCU</h3>
           </li>
           <li>
-            <button>BASIC</button>
+            <button className="calcModeButton">BASIC</button>
           </li>
           <li>
-            <button>STANDARD</button>
+            <button className="calcModeButton">STANDARD</button>
           </li>
         </ul>
       </div>
@@ -57,6 +60,7 @@ function App() {
             <input className="submitBtn" type="submit" value="CALCULATE" />
           </form>
         </div>
+
         {/* <div className="calcStandardMode"></div> */}
       </div>
     </div>
