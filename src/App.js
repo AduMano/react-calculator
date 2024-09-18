@@ -1,8 +1,13 @@
+// React Modules
+import { useState } from "react";
+
 // Components
 import { NavMenu } from "./components/NavMenu";
 import { CalculatorHeader } from "./components/CalculatorHeader";
-import { NumberInput } from "./components/BasicComponents/NumberInput";
-import { OperatorInput } from "./components/BasicComponents/OperatorInput";
+import { BasicMode } from "./page/BasicMode";
+
+// Custom Hooks
+import useBasicCalculator from "./CustomHooks/useBasicCalculator";
 
 // Styles
 import "./styles/calculator.css";
@@ -10,6 +15,18 @@ import "./styles/NavMenu/navMenu.css";
 import "./styles/BasicMode/basicMode.css";
 
 function App() {
+  // States
+  const {
+    handleNum1,
+    num1,
+    handleNum2,
+    num2,
+    handleOperator,
+    operator,
+    handleResult,
+    result,
+  } = useBasicCalculator();
+
   return (
     <div className="calcWrapper">
       <NavMenu />
@@ -17,20 +34,20 @@ function App() {
 
       <div className="calcBody">
         {/* This depends on which mode is selected */}
-        <div className="calcBasicMode">
-          <form>
-            <NumberInput label={"#1"} type={"number"} isReadOnly={false} />
-            <NumberInput label={"#2"} type={"number"} isReadOnly={false} />
-
-            <div className="formResult">
-              <OperatorInput />
-              <NumberInput label={"RESULT"} type={"number"} isReadOnly={true} />
-            </div>
-
-            <input className="submitBtn" type="submit" value="CALCULATE" />
-          </form>
-        </div>
-
+        <BasicMode
+          handleEvents={{
+            handleNum1,
+            handleNum2,
+            handleOperator,
+            handleResult,
+          }}
+          states={{
+            num1,
+            num2,
+            operator,
+            result,
+          }}
+        />
         {/* <div className="calcStandardMode"></div> */}
       </div>
     </div>
