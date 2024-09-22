@@ -1,4 +1,5 @@
 import { useState } from "react";
+import getResult from "../scripts/handleResult";
 
 function useBasicCalculator() {
   const [num1, setNum1] = useState("0");
@@ -19,21 +20,7 @@ function useBasicCalculator() {
   };
 
   const handleResult = () => {
-    switch (operator) {
-      case "+":
-        setResult(parseFloat(num1) + parseFloat(num2));
-        break;
-      case "-":
-        setResult(parseFloat(num1) - parseFloat(num2));
-        break;
-      case "*":
-        setResult(parseFloat(num1) * parseFloat(num2));
-        break;
-      case "/":
-        let result = parseFloat(num1) / parseFloat(num2);
-        setResult(isNaN(result) ? "Error" : result);
-        break;
-    }
+    setResult(getResult(operator, num1, num2));
   };
 
   return {
