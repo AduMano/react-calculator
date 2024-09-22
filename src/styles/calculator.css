@@ -52,6 +52,7 @@
 
 .calcWrapper .calcBody {
   position: relative;
+  border-radius: 10px;
 }
 
 /* STANDARD MODE STYLE */
