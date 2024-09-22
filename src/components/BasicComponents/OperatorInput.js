@@ -5,7 +5,7 @@ export const OperatorInput = ({ handleInput, stateOperator }) => {
 
   return (
     <select onChange={select} value={stateOperator}>
-      <option selected>+</option>
+      <option defaultValue>+</option>
       <option>-</option>
       <option>*</option>
       <option>/</option>

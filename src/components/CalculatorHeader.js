@@ -3,11 +3,7 @@ import React from "react";
 export const CalculatorHeader = ({ title, handleNavMenu }) => {
   const { navActive, handleNav } = handleNavMenu;
   const openNav = () => {
-    console.log(navActive);
-    if (!navActive) {
-      handleNav(true);
-      console.log(navActive);
-    }
+    if (!navActive) handleNav(true);
   };
 
   return (
