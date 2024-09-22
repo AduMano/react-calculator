@@ -5,6 +5,7 @@ import { useState } from "react";
 import { NavMenu } from "./components/NavMenu";
 import { CalculatorHeader } from "./components/CalculatorHeader";
 import { BasicMode } from "./page/BasicMode";
+import { StandardMode } from "./page/StandardMode";
 
 // Custom Hooks
 import useBasicCalculator from "./CustomHooks/useBasicCalculator";
@@ -14,12 +15,13 @@ import useNavMenu from "./CustomHooks/useNavMenu";
 import "./styles/calculator.css";
 import "./styles/NavMenu/navMenu.css";
 import "./styles/BasicMode/basicMode.css";
+import "./styles/StandardMode/standardMode.css";
 
 function App() {
-  // States
-  const [mode, setMode] = useState("basic");
+  /// States
+  const [mode, setMode] = useState("standard");
 
-  // Use Custom Hook
+  /// Use Custom Hook
   const {
     handleNum1,
     num1,
@@ -30,10 +32,10 @@ function App() {
     handleResult,
     result,
   } = useBasicCalculator();
-
   const navHandle = useNavMenu();
 
-  // Logic
+  /// Logic
+  // Nav
   const handleMode = (value) => {
     setMode(value);
   };
@@ -61,7 +63,7 @@ function App() {
             }}
           />
         )}
-        {/* <div className="calcStandardMode"></div> */}
+        {mode == "standard" && <StandardMode />}
       </div>
     </div>
   );

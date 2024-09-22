@@ -1,0 +1,81 @@
+/* Colors */
+.lightGrey {
+  background-color: #ddd;
+}
+.grey {
+  background-color: #bbb;
+}
+.orange {
+  background-color: hsl(12, 96%, 67%);
+  color: white;
+}
+
+/* STANDARD MODE STYLE */
+.calcStandardMode {
+  position: relative;
+  width: 100%;
+
+  text-align: center;
+}
+
+.calcStandardMode .outputScreen,
+.calcStandardMode .inputSection {
+  position: relative;
+  width: 100%;
+}
+
+.calcStandardMode .outputScreen {
+  position: relative;
+  width: 100%;
+  height: 100px;
+  padding: 10px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: right;
+
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+  z-index: 5;
+}
+.calcStandardMode .outputScreen input {
+  text-align: right;
+}
+
+.calcStandardMode .inputSection {
+  padding: 30px 20px;
+  background-color: #eee;
+}
+
+.calcStandardMode .inputSection table {
+  position: relative;
+  width: 100%;
+}
+.calcStandardMode .inputSection table tr td {
+  position: relative;
+  width: calc(100% / 4);
+}
+.calcStandardMode .inputSection table button {
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  padding: 15px 0;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 10px;
+  border-color: white;
+  transition: all 0.05s ease;
+  user-select: none;
+}
+.calcStandardMode .inputSection table button:hover {
+  cursor: pointer;
+  filter: brightness(1.1);
+}
+
+.calcStandardMode .inputSection table button:active {
+  cursor: pointer;
+  filter: brightness(0.9);
+}
