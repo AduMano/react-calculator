@@ -19,7 +19,7 @@ import "./styles/StandardMode/standardMode.css";
 
 function App() {
   /// States
-  const [mode, setMode] = useState("standard");
+  const [mode, setMode] = useState("basic");
 
   /// Use Custom Hook
   const {
