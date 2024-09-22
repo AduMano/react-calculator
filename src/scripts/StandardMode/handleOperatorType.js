@@ -22,7 +22,7 @@ const handleOperatorType = (value, getState, setState) => {
       return;
     }
 
-    handleNum1(getResult(operator, num1, num2));
+    handleNum1(getResult(operator, num2, num1));
     handleNum2("");
     handleOperator("");
   }

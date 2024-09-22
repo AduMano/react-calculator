@@ -22,7 +22,7 @@ const handleFunctionType = (value, getState, setState) => {
       num1.length == 1 ? handleNum1("0") : handleNum1(newNum);
       break;
     case "=":
-      handleNum1(String(getResult(operator, num1, num2)));
+      handleNum1(String(getResult(operator, num2, num1)));
       handleNum2("");
       handleOperator("");
       break;
