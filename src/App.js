@@ -8,7 +8,6 @@ import { BasicMode } from "./page/BasicMode";
 import { StandardMode } from "./page/StandardMode";
 
 // Custom Hooks
-import useBasicCalculator from "./CustomHooks/useBasicCalculator";
 import useNavMenu from "./CustomHooks/useNavMenu";
 
 // Styles
@@ -21,21 +20,9 @@ function App() {
   /// States
   const [mode, setMode] = useState("basic");
 
-  /// Use Custom Hook
-  const {
-    handleNum1,
-    num1,
-    handleNum2,
-    num2,
-    handleOperator,
-    operator,
-    handleResult,
-    result,
-  } = useBasicCalculator();
-  const navHandle = useNavMenu();
-
   /// Logic
   // Nav
+  const navHandle = useNavMenu();
   const handleMode = (value) => {
     setMode(value);
   };
@@ -47,22 +34,7 @@ function App() {
 
       <div className="calcBody">
         {/* This depends on which mode is selected */}
-        {mode == "basic" && (
-          <BasicMode
-            handleEvents={{
-              handleNum1,
-              handleNum2,
-              handleOperator,
-              handleResult,
-            }}
-            states={{
-              num1,
-              num2,
-              operator,
-              result,
-            }}
-          />
-        )}
+        {mode == "basic" && <BasicMode />}
         {mode == "standard" && <StandardMode />}
       </div>
     </div>

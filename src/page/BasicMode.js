@@ -1,21 +1,29 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { NumberInput } from "../components/BasicComponents/NumberInput";
 import { OperatorInput } from "../components/BasicComponents/OperatorInput";
+import useBasicCalculator from "../CustomHooks/useBasicCalculator";
 
-export const BasicMode = ({ handleEvents, states }) => {
-  // Logic
-  const calculate = (event) => {
-    event.preventDefault();
-    handleResult();
-  };
+export const BasicMode = () => {
+  const handleEvents = useBasicCalculator();
 
-  const handleOperandOne = (event) =>
-    handleEvents.handleNum1(event.target.value);
-  const handleOperandTwo = (event) =>
-    handleEvents.handleNum2(event.target.value);
-  const handleOperator = (event) =>
-    handleEvents.handleOperator(event.target.value);
-  const handleResult = () => handleEvents.handleResult();
+  const handleResult = useCallback(() => {
+    handleEvents.handleResult();
+  }, [handleEvents]);
+
+  const calculate = useCallback(
+    (event) => {
+      event.preventDefault();
+      handleResult();
+    },
+    [handleResult]
+  );
+
+  const handleOperand = useCallback(
+    (setter) => (event) => {
+      setter(event.target.value);
+    },
+    []
+  );
 
   return (
     <div className="calcBasicMode">
@@ -24,25 +32,25 @@ export const BasicMode = ({ handleEvents, states }) => {
           label={"#1"}
           type={"number"}
           isReadOnly={false}
-          value={states.num1}
-          handleInput={handleOperandOne}
+          value={handleEvents.num1}
+          onChange={handleOperand(handleEvents.handleNum1)}
         />
         <NumberInput
           label={"#2"}
           type={"number"}
-          value={states.num2}
+          value={handleEvents.num2}
           isReadOnly={false}
-          handleInput={handleOperandTwo}
+          onChange={handleOperand(handleEvents.handleNum2)}
         />
 
         <div className="formResult">
           <OperatorInput
-            handleInput={handleOperator}
-            stateOperator={states.operator}
+            onChange={handleOperand(handleEvents.handleOperator)}
+            stateOperator={handleEvents.operator}
           />
           <NumberInput
             label={"RESULT"}
-            value={states.result}
+            value={handleEvents.result}
             type={"text"}
             isReadOnly={true}
           />

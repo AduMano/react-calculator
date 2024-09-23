@@ -1,13 +1,7 @@
 import React from "react";
 
-export const NumberInput = ({
-  label,
-  type,
-  isReadOnly,
-  handleInput,
-  value,
-}) => {
-  const keyPress = (event) => handleInput(event);
+export const NumberInput = ({ label, type, isReadOnly, onChange, value }) => {
+  const keyPress = (event) => onChange(event);
   const handleSelection = (e) => {
     if (e.target.value.trim() == "0") e.target.select();
   };

@@ -1,7 +1,7 @@
 import React from "react";
 
-export const OperatorInput = ({ handleInput, stateOperator }) => {
-  const select = (event) => handleInput(event);
+export const OperatorInput = ({ onChange, stateOperator }) => {
+  const select = (event) => onChange(event);
 
   return (
     <select onChange={select} value={stateOperator}>
